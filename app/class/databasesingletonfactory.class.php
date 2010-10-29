@@ -1,5 +1,5 @@
 <?php
-// TODO: Documentar
+// TODO: Documment the class.
 class DatabaseSingletonFactory
 {
 	static protected $instance = NULL;

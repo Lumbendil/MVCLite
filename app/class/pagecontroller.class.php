@@ -11,6 +11,7 @@
  */
 abstract class PageController extends Controller
 {
+	// TODO: Documment the class.
 	protected $modules = array();
 
 	protected function addModule( $controller_name, $action_name, $params )
@@ -42,7 +43,6 @@ abstract class PageController extends Controller
 				$module_controller	= ControllerFactory::getController( $module['controller'] );
 
 				$module_controller->run( $module['action'], $module['params'] );
-				// TODO: Store $module_controller->fetch() to cache.
 			}
 		}
 	}

@@ -6,7 +6,7 @@
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
  */
-
+// TODO: Finish docummenting the constants.
 // The constant ROOT_PATH needs to be defined before importing this script.
 /**
  * Path to the app folder, wich contains the framework, and shouldn't be accesible
@@ -91,6 +91,7 @@ define( 'DB_DATABASE',	'framework' );
 
 define( 'DEFAULT_LOCALE', 'es_ES' );
 
+// TODO: Use the variable cache enabled everywhere cache is used.
 define( 'CACHE_ENABLED',	false );
 define( 'MEMCACHED_HOST',	'192.168.150.128' );
 define( 'MEMCACHED_PORT',	11211 );
