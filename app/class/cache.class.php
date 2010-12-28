@@ -9,32 +9,79 @@
 /**
  * Class that handles the caching of data.
  */
-class Cache extends Memcache
+
+if ( CACHE_ENABLED )
 {
-	/**
-	 * Singleton instance of the cache.
-	 *
-	 * @var Cache
-	 */
-	protected static $instance = NULL;
-
-	/**
-	 * Protected constructor, that connects to the memcached server.
-	 */
-	protected function __construct()
+	class Cache extends Memcache
 	{
-		$this->connect( MEMCACHED_HOST, MEMCACHED_PORT );
-	}
+		/**
+		 * Singleton instance of the cache.
+		 *
+		 * @var Cache
+		 */
+		protected static $instance = NULL;
 
-	/**
-	 * Gets the instance of the Cache object.
-	 */
-	public static function getInstance()
-	{
-		if ( NULL === self::$instance )
+		/**
+		 * Protected constructor, that connects to the memcached server.
+		 */
+		protected function __construct()
 		{
-			self::$instance = new Cache;
+			$this->connect( MEMCACHED_HOST, MEMCACHED_PORT );
 		}
-		return self::$instance;
+
+		/**
+		 * Gets the instance of the Cache object.
+		 */
+		public static function getInstance()
+		{
+			if ( NULL === self::$instance )
+			{
+				self::$instance = new Cache;
+			}
+			return self::$instance;
+		}
+	}
+}
+else
+{
+	// TODO: Arreglar apaños
+	class Cache
+	{
+	/**
+		 * Singleton instance of the cache.
+		 *
+		 * @var Cache
+		 */
+		protected static $instance = NULL;
+
+		/**
+		 * Protected constructor, that connects to the memcached server.
+		 */
+		protected function __construct()
+		{
+			$this->connect( MEMCACHED_HOST, MEMCACHED_PORT );
+		}
+
+		/**
+		 * Gets the instance of the Cache object.
+		 */
+		public static function getInstance()
+		{
+			if ( NULL === self::$instance )
+			{
+				self::$instance = new Cache;
+			}
+			return self::$instance;
+		}
+
+		public function __call($method, $args)
+		{
+			return false;
+		}
+
+		public static function __callstatic($method, $args)
+		{
+			return false;
+		}
 	}
 }

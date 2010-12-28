@@ -11,10 +11,30 @@
  */
 abstract class PageController extends Controller
 {
-	// TODO: Documment the class.
+	/**
+	 * All the modules wich will be used.
+	 *
+	 * @var array
+	 */
 	protected $modules = array();
 
-	protected function addModule( $controller_name, $action_name, $params )
+	protected function redirect ( $url, $http_code = NULL )
+	{
+		header( 'Location: ' . $url );
+
+		$this->setPreviousUri();
+
+		exit();
+	}
+
+	/**
+	 * Makes the parent controller use a module.
+	 *
+	 * @param string $controller_name
+	 * @param string $action_name
+	 * @param string $params
+	 */
+	protected function addModule( $controller_name, $action_name, $params = array() )
 	{
 		$this->modules[] = array(
 			'controller'	=> $controller_name
@@ -23,20 +43,31 @@ abstract class PageController extends Controller
 		);
 	}
 
-	protected function getModules()
+	protected function afterAction( $action, $params )
 	{
-		return $this->modules;
+		parent::afterAction( $action, $params );
+
+		$this->setPreviousUri();
 	}
 
+	protected function setPreviousUri()
+	{
+		FilterSingletonFactory::getInstance( 'FilterSession' )->storeData( 'prev_page'
+			, FilterSingletonFactory::getInstance( 'FilterServer' )->getText( 'REQUEST_URI' ) );
+	}
+
+	/**
+	 * Processes all the modules wich arent disabled.
+	 */
 	public function processModules()
 	{
-		$modules = $this->getModules();
+		$previous_context = $this->template->getCurrentContext();
 
 		$disabled_modules = file( CONFIG_PATH . 'disabled_modules.list' );
 
-		for ( $i = 0, $end = count( $modules ) ; $i < $end; $i++ )
+		for ( $i = 0, $end = count( $this->modules ) ; $i < $end; $i++ )
 		{
-			$module				= $modules[$i];
+			$module = $this->modules[$i];
 
 			if ( !in_array( $module['controller'], $disabled_modules) )
 			{
@@ -45,5 +76,9 @@ abstract class PageController extends Controller
 				$module_controller->run( $module['action'], $module['params'] );
 			}
 		}
+
+		$this->template->setContext( $previous_context );
+
+		return $this;
 	}
 }

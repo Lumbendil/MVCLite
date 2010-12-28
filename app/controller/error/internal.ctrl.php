@@ -2,14 +2,14 @@
 /**
  * internal.ctrl.php
  *
- * File wich contains the InternalErrorController.
+ * File wich contains the ErrorInternalController.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
  */
 /**
  * Class that will handle the 500 exception.
  */
-class InternalErrorController extends PageController
+class ErrorInternalController extends PageController
 {
 	/**
 	 * Action to show the HTML of the 500 error.

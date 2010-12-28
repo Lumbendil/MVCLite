@@ -64,8 +64,11 @@ class Router
 		{
 			if ( preg_match( $regex, $uri, $matches ) )
 			{
+				array_shift( $matches );
+
 				$this->controller	= $data['controller'];
 				$this->action		= $data['action'];
+				$this->params		= $matches;
 				break;
 			}
 		}

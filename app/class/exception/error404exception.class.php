@@ -18,7 +18,7 @@ class Error404Exception extends CustomException implements HttpErrorException
 
 	public function getController()
 	{
-		return 'PageNotFoundErrorController';
+		return 'ErrorPageNotFoundController';
 	}
 
 	public function getAction()

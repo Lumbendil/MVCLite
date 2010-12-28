@@ -27,39 +27,86 @@ abstract class Controller
 	protected $template_file	= '';
 
 	/**
-	 * Constructor that creates the template and gets it's name.
+	 * The folder wich contains the template to be used.
 	 *
-	 * @throws Error404Exception Exception thrown when the class name isn't as
-	 * expected.
+	 * @var string
+	 */
+	protected $template_folder	= '';
+
+	/**
+	 * The cache object.
+	 *
+	 * @var Cache
+	 */
+	protected $cache			= NULL;
+
+	/**
+	 * Array of required plugins. They're stored in the following way.
+	 * array( action1 => array( plugin1, plugin2 ), action2 => array( plugin3 ) )
+	 *
+	 * @var array
+	 */
+	protected $plugins			= array();
+
+	/**
+	 * Constructor that creates the template and gets it's name.
 	 */
 	public function __construct()
 	{
-		$this->template	= Template::getInstance();
+		$this->cache			= Cache::getInstance();
 
-		$class_name		= get_class( $this );
+		$this->template			= Template::getInstance();
 
-		if ( preg_match( CONTROLLER_REGEX, $class_name, $matches ) )
+		$class_name				= get_class( $this );
+
+		$this->template_folder	= preg_replace( CONTROLLER_REGEX, '$1/$2/' , $class_name );
+
+		$this->template_folder	= strtolower( $this->template_folder );
+	}
+
+	/**
+	 * Function wich loads the plugins required for the action.
+	 *
+	 * @param string $action
+	 */
+	protected function loadPlugins( $action )
+	{
+		$loaded_plugins		= array();
+		$plugins_to_load	= array_key_exists( $action, $this->plugins ) ?
+			$this->plugins[$action] : array();
+
+		foreach ( $plugins_to_load as $key => $value )
 		{
-			$this->template_file = TEMPLATE_PATH . strtolower( $matches[2] ) . '/';
-			$this->template_file .= strtolower( $matches[1] ) . '/';
+			if ( is_int( $key ) )
+			{
+				$plugin	= PluginManager::getPlugin( $value );
+
+				$key	= $value;
+			}
+			else
+			{
+				$plugin = PluginManager::getPlugin( $key, $value );
+			}
+
+			if ( NULL !== $plugin )
+			{
+				$loaded_plugins[$key] = $plugin;
+			}
 		}
-		else
-		{
-			throw new Error404Exception;
-		}
+
+		$this->plugins = $loaded_plugins;
 	}
 
 	/**
 	 * In an action, function used to set the template to a new one, wich is in the
 	 * same folder as all the actions asociated to the given model, but named as
-	 * {action}{$extra}{TEMPLATE_EXTENSION}.
+	 * {$new_name}{TEMPLATE_EXTENSION}.
 	 *
-	 * @param string $extra
+	 * @param string $new_name
 	 */
-	protected function addExtraToTemplatePath( $extra )
+	protected function newTemplateName( $new_name )
 	{
-		$this->template_file = substr( $this->template_file, 0, - strlen( TEMPLATE_EXTENSION ) );
-		$this->template_file .= $extra . TEMPLATE_EXTENSION;
+		$this->template_file = $new_name . TEMPLATE_EXTENSION;
 	}
 
 	/**
@@ -69,7 +116,10 @@ abstract class Controller
 	 * @param array		$params Indexed array of parameters to be given to the
 	 * 	action that will be called.
 	 */
-	protected function beforeAction( $action, $params ) {}
+	protected function beforeAction( $action, $params )
+	{
+		$this->loadPlugins( $action );
+	}
 
 	/**
 	 * Common instructions to be called after executing the action.
@@ -80,15 +130,17 @@ abstract class Controller
 	 */
 	protected function afterAction( $action, $params )
 	{
-		$this->template->setTemplate( $this->template_file );
+		$this->template->setTemplate( $this->template_folder .  $this->template_file );
 	}
 
 	/**
 	 * Runs the controller with $action and the given params.
 	 *
-	 * @param string	$action Action of the controller to be called.
-	 * @param array		$params Indexed array of parameters to be given to the
+	 * @param string		$action Action of the controller to be called.
+	 * @param array			$params Indexed array of parameters to be given to the
 	 * 	called action.
+	 *
+	 * @return Controller	The own class.
 	 */
 	public function run( $action, $params )
 	{
@@ -99,6 +151,8 @@ abstract class Controller
 		call_user_func_array( array( $this, $action ), $params );
 
 		$this->afterAction( $action, $params );
+
+		return $this;
 	}
 
 	/**
@@ -113,7 +167,7 @@ abstract class Controller
 	 */
 	protected function getData( $model_name, $function, $params )
 	{
-		$model = ModelSingletonFactory::getModel( $model_name );
+		$model = ModelSingletonFactory::getModel( $model_name . 'Model' );
 
 		return call_user_func_array( array( $model, $function ), $params );
 	}
@@ -135,5 +189,23 @@ abstract class Controller
 	protected function assign( $key, $data )
 	{
 		$this->template->assign( $key, $data );
+	}
+
+	/**
+	 * Throws an HTTP exception, wich will trigger the error.
+	 *
+	 * @param int		$code		The error code.
+	 * @param string	$message	The exception message.
+	 *
+	 * @throws HttpErrorException
+	 */
+	protected function error( $code, $message )
+	{
+		switch( $code )
+		{
+			case 404:
+				throw new Error404Exception( $message );
+				break;
+		}
 	}
 }

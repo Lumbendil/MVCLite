@@ -29,12 +29,9 @@ class Dispatcher
 			$action				= $router->getAction();
 			$params				= $router->getParams();
 
-			$controller = $this->runController( $controller_name, $action, $params );
-			$controller->processModules();
-
-			Template::getInstance()->setContext('MAIN');
-
-			echo $controller->fetch();
+			echo $this->runController( $controller_name, $action, $params )
+					->processModules()
+					->fetch();
 		}
 		catch (HttpErrorException $e)
 		{
@@ -44,9 +41,8 @@ class Dispatcher
 			$action				= $e->getAction();
 			$params				= $e->getParams();
 
-			$controller = $this->runController( $controller_name, $action, $params );
-
-			echo $controller->fetch();
+			echo $this->runController( $controller_name, $action, $params )
+					->fetch();
 		}
 	}
 

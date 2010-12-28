@@ -18,7 +18,7 @@ class Error500Exception extends CustomException implements HttpErrorException
 
 	public function getController()
 	{
-		return 'InternalErrorController';
+		return 'ErrorInternalController';
 	}
 
 	public function getAction()

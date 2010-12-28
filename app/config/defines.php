@@ -6,7 +6,6 @@
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
  */
-// TODO: Finish docummenting the constants.
 // The constant ROOT_PATH needs to be defined before importing this script.
 /**
  * Path to the app folder, wich contains the framework, and shouldn't be accesible
@@ -74,24 +73,126 @@ define( 'CLASS_PATH',		APP_PATH . 'class/' );
  * @var string
  */
 define( 'CORE_PATH',		APP_PATH . 'core/' );
+/**
+ * Path to the uploads folder, where the files that have been uploaded by users
+ * (or created with those files) are stored.
+ *
+ * @var string
+ */
+define( 'UPLOAD_PATH', APP_PATH . 'uploads/' );
+/**
+ * Path to the plugins folder.
+ *
+ * @var string
+ */
+define( 'PLUGIN_PATH', APP_PATH . 'plugin/' );
 
+/**
+ * Path to the CSS files.
+ *
+ * @var string
+ */
 define( 'CSS_PATH',	PUBLIC_PATH . 'css/' );
+/**
+ * Path to the static images.
+ *
+ * @var string
+ */
 define( 'IMG_PATH',	PUBLIC_PATH . 'img/' );
+/**
+ * Path to the javascript.
+ *
+ * @var string
+ */
 define( 'JS_PATH',	PUBLIC_PATH . 'js/' );
 
+/**
+ * The extension of the template files.
+ *
+ * @var string
+ */
 define( 'TEMPLATE_EXTENSION', '.tpl' );
 
-define( 'CONTROLLER_REGEX', '/^((?:[A-Z][^A-Z]*)+)([A-Z][^A-Z]*)Controller$/' );
-define( 'MODEL_REGEX', '/^(.+)Model$/' );
+/**
+ * The controller's matching regex.
+ *
+ * @var string.
+ */
+define( 'CONTROLLER_REGEX',	'/^([A-Z][^A-Z]*)((?:[A-Z][^A-Z]*)+)Controller$/' );
+/**
+ * The model's matching regex.
+ *
+ * @var string.
+ */
+define( 'MODEL_REGEX',		'/^(.+)Model$/' );
+/**
+ * The plugin's matching regex.
+ *
+ * @var string.
+ */
+define( 'PLUGIN_REGEX',		'/^(.+)Plugin$/' );
 
+/**
+ * Default database host.
+ *
+ * @var string.
+ */
 define( 'DB_HOSTNAME',	'localhost' );
-define( 'DB_USERNAME',	'framework_rw' );
+/**
+ * Default database user.
+ *
+ * @var string.
+ */
+define( 'DB_USERNAME',	'rawchive_rw' );
+/**
+ * Default database password.
+ *
+ * @var string.
+ */
 define( 'DB_PASSWORD',	'123456789' );
-define( 'DB_DATABASE',	'framework' );
+/**
+ * Default database.
+ *
+ * @var string.
+ */
+define( 'DB_DATABASE',	'rawchive' );
 
+/**
+ * Default locale.
+ *
+ * @var string
+ */
 define( 'DEFAULT_LOCALE', 'es_ES' );
 
-// TODO: Use the variable cache enabled everywhere cache is used.
+/**
+ * Constant wich enables or disables the cache.
+ *
+ * @var boolean
+ */
 define( 'CACHE_ENABLED',	false );
+/**
+ * Memcached server IP.
+ *
+ * @var string
+ */
 define( 'MEMCACHED_HOST',	'192.168.150.128' );
+/**
+ * Memacached server connection port.
+ *
+ * @var int
+ */
 define( 'MEMCACHED_PORT',	11211 );
+
+/**
+ * Algorithm used to do all the hash.
+ *
+ * @var string
+ */
+define( 'HASH_ALGORITHM', 'sha1');
+
+/**
+ * Random salt to create the control character.
+ *
+ * @var string
+ */
+define( 'PHOTO_SALT', 'asfdhsLAD8asfOKJASF7fsa7AH&%TrqYH' );

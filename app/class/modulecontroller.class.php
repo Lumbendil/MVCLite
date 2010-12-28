@@ -16,9 +16,10 @@ abstract class ModuleController extends Controller
 	 *
 	 * @see Controller::beforeAction()
 	 */
-	public function beforeAction( $action, $params )
+	protected function beforeAction( $action, $params )
 	{
-		$context = get_class( $this ) . '_' . $action;
+		parent::beforeAction( $action, $params );
+		$context = get_class( $this ) . '::' . $action;
 		$this->template->setContext( $context );
 	}
 }

@@ -34,4 +34,32 @@ class FilterSession extends AbstractFilter implements FilterPersistentData
 		}
 		return false;
 	}
+
+	/**
+	 * Restarts the session.
+	 *
+	 * @param $keys_to_save	Array of keys that should be saved after session restart.
+	 */
+	public function restart( $keys_to_save )
+	{
+		$data_to_save = array();
+
+		foreach( $keys_to_save as $key )
+		{
+			$obtained_data = $this->getData( $key );
+
+			if ( NULL !== $obtained_data )
+			{
+				$data_to_save[$key] = $obtained_data;
+			}
+		}
+
+		session_destroy();
+		session_start();
+
+		foreach( $data_to_save as $key => $value )
+		{
+			$this->storeData( $key, $value );
+		}
+	}
 }

@@ -21,11 +21,13 @@ interface Filter
 	 * plain text.
 	 *
 	 * @param string	$key	The key to the data to be filtered.
+	 * @param string	$regex	Optional parameter. If given, if the data doesn't
+	 * 	match the regex, this function will return false aswell.
 	 *
 	 * @return string			The data on $key with the relevant HTML entities
 	 * 	written in a printable format.
 	 */
-	public function getText		( $key );
+	public function getText		( $key, $regex = NULL  );
 
 	/**
 	 * Function wich returns the data on position $key if it's an e-mail.
@@ -64,4 +66,15 @@ interface Filter
 	 * 	the ones on $allowed_tags removed.
 	 */
 	public function getHtml		( $key, $allowed_tags );
+
+	/**
+	 * Function wich returns the array.
+	 *
+	 * @param string	$key
+	 * @param string	$filter
+	 * @param array		$extra_params
+	 *
+	 * @return array
+	 */
+	public function getFilteredArray( $key, $filter, $extra_params );
 }
