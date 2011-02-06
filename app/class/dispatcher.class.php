@@ -15,14 +15,15 @@ class Dispatcher
 	/**
 	 * Runs the dispatcher, creating the controller, running the action, and then
 	 * displaying the result.
+	 *
+	 * @param Router $router The router to be used by the system.
 	 */
-	public function run()
+	public function run( Router $router )
 	{
-		$router = new Router;
-
 		try
 		{
-			$uri = FilterSingletonFactory::getInstance('FilterServer')->getText('REQUEST_URI');
+			$uri = FilterSingletonFactory::getInstance('FilterServer')
+								->getText('REQUEST_URI');
 			$router->parseUri( $uri );
 
 			$controller_name	= $router->getController();

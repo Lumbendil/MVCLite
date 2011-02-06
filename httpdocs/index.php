@@ -17,4 +17,4 @@ require ROOT_PATH . 'app/core/init.php';
 
 $dispatcher = new Dispatcher;
 
-$dispatcher->run();
+$dispatcher->run( new Router( CONFIG_PATH . 'routes.ini' ) );

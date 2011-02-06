@@ -43,9 +43,9 @@ class Router
 	 * Constructor, wich reads the file routes.ini in CONFIG_PATH, and stores it
 	 * in $routes.
 	 */
-	public function __construct()
+	public function __construct( $routes_file )
 	{
-		$this->routes = parse_ini_file( CONFIG_PATH . 'routes.ini', true );
+		$this->routes = parse_ini_file( $routes_file, true );
 	}
 
 	/**
