@@ -1,11 +1,5 @@
 <?php
-
-define( 'ROOT_PATH',dirname( dirname( dirname(  __FILE__ ) ) ) . '/' );
-require_once ROOT_PATH . 'app/config/defines.php';
-require_once CORE_PATH . 'autoload.php';
 require_once 'vfsStream/vfsStream.php';
-
-Autoloader::startInstance();
 
 class RouterTest extends PHPUnit_Framework_TestCase
 {
@@ -30,7 +24,7 @@ CONFIG;
 
 	public function testParseUriWithWrongUri()
 	{
-		$this->markIncompleteTest();
+		$this->markTestIncomplete();
 	}
 
 	public function testParseUri()
