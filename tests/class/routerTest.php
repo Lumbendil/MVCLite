@@ -1,6 +1,8 @@
 <?php
 require_once 'vfsStream/vfsStream.php';
 
+class Error404Exception extends Exception {}
+
 class RouterTest extends PHPUnit_Framework_TestCase
 {
 	protected $router = NULL;
