@@ -5,6 +5,8 @@
  * File that contains the interfice of HTTP errors.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Interface to be implemented by all the classes wich give HTTP errors.

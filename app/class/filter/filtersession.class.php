@@ -2,7 +2,8 @@
 /**
  * Class wich deals with session usage.
  *
- * @package GlobalFilters
+ * @package MVCLite
+ * @subpackage Filters
  */
 class FilterSession extends AbstractFilter implements FilterPersistentData
 {

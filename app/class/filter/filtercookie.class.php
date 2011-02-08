@@ -2,7 +2,8 @@
 /**
  * Class wich deals with cookie usage.
  *
- * @package GlobalFilters
+ * @package MVCLite
+ * @subpackage Filters
  */
 class FilterCookie extends AbstractFilter implements FilterPersistentData
 {

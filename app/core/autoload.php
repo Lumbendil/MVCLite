@@ -6,6 +6,8 @@
  * autoload system of php.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Class wich, when started, sets all the autoloaders.

@@ -2,7 +2,8 @@
 /**
  * Class wich deals with $_SERVER data.
  *
- * @package GlobalFilters
+ * @package MVCLite
+ * @subpackage Filters
  */
 class FilterServer extends FilterUnsetSource implements Filter
 {

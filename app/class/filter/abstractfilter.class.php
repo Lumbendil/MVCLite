@@ -3,7 +3,8 @@
  * Abstract class wich has the basic implementation of most of the methods in
  * the interface Filter.
  *
- * @package GlobalFilters
+ * @package MVCLite
+ * @subpackage Filters
  */
 abstract class AbstractFilter implements Filter
 {

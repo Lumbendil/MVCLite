@@ -5,6 +5,8 @@
  * File that contains the Exception for the error 404 (Page not found)
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Thrown exception when the page can't be found.

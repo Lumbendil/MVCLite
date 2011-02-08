@@ -5,6 +5,8 @@
  * File that contains the class ModelSingletonFactory.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Factory wich produces singletoned instances of the models.

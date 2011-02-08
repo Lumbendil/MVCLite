@@ -5,6 +5,8 @@
  * Defines the Router class.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Routes the URIs to the controllers and actions.

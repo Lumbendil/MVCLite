@@ -5,6 +5,8 @@
  * File wich contains the UploadsManager plugin.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Class wich handles the uploads of the system.

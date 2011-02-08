@@ -5,6 +5,8 @@
  * File wich contains the class FormCreatorPlugin.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Plugin that helps creation of formularies.

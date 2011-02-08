@@ -2,7 +2,8 @@
 /**
  * Interface wich has the methods any filter of user input should have.
  *
- * @package GlobalFilters
+ * @package MVCLite
+ * @subpackage Filters
  */
 interface Filter
 {

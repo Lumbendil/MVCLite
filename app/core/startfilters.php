@@ -6,6 +6,8 @@
  * storing the data, to avoid direct usage.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 FilterSingletonFactory::getInstance('FilterCookie');
 FilterSingletonFactory::getInstance('FilterGet');

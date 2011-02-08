@@ -2,7 +2,8 @@
 /**
  * Class wich deals with $_REQUEST data.
  *
- * @package GlobalFilters
+ * @package MVCLite
+ * @subpackage Filters
  */
 class FilterRequest extends FilterUnsetSource implements Filter
 {

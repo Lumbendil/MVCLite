@@ -5,6 +5,8 @@
  * File that contains the Database class.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Database proxy class, wich extends PDO.

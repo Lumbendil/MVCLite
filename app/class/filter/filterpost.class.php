@@ -2,7 +2,8 @@
 /**
  * Class wich deals with $_POST data.
  *
- * @package GlobalFilters
+ * @package MVCLite
+ * @subpackage Filters
  */
 class FilterPost extends FilterUnsetSource implements Filter
 {

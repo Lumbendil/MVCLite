@@ -5,6 +5,8 @@
  * File wich contains the ErrorInternalController.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Class that will handle the 500 exception.

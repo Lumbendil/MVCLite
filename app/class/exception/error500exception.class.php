@@ -5,6 +5,8 @@
  * File that contains the Exception for the error 500 (Server Error)
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Thrown exception when there is an error with the server.

@@ -5,6 +5,8 @@
  * File that contains the controller factory class.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Factory that produces controllers.

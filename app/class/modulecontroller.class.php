@@ -5,6 +5,8 @@
  * File wich contains the ModuleController class.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Class to be extended by all the modules.

@@ -5,6 +5,8 @@
  * File that contains the ErrorPageNotFoundController.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Class that handles the 404 error.

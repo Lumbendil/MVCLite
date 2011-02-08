@@ -3,6 +3,8 @@
  * File that contains the definition of the database singleton factory.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Factory that returns singletoned database instances.

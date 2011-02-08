@@ -5,6 +5,8 @@
  * File that contains all the needed constants for the application to work.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 // The constant ROOT_PATH needs to be defined before importing this script.
 /**

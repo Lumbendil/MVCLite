@@ -5,6 +5,8 @@
  * Function that defines the Template class.
  *
  * @author Roger Llopart Pla.
+ *
+ * @package MVCLite
  */
 
 require_once LIB_PATH . 'Twig/Autoloader.php';

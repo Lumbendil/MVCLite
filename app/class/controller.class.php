@@ -5,6 +5,8 @@
  * File wich contains the abstract class Controller.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Class to be extended by all controllers wich contains common methods and

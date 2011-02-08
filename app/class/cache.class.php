@@ -5,6 +5,8 @@
  * File that contains the cache class.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Class that handles the caching of data.

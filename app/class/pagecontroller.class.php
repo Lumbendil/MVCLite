@@ -5,6 +5,8 @@
  * File that contains the PageController class.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Class that is extended by all controllers that create full pages.

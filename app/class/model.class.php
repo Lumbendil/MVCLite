@@ -5,6 +5,8 @@
  * File that contains the Model class.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Abstract class wich must be inerited by all the models.

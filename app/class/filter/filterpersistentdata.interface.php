@@ -3,7 +3,8 @@
  * Extension of filter wich adds methods needed by the filters wich deal with
  * persistent data.
  *
- * @package GlobalFilters
+ * @package MVCLite
+ * @subpackage Filters
  */
 interface FilterPersistentData extends Filter
 {

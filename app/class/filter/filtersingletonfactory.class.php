@@ -5,6 +5,9 @@
  * File that contains the singleton factory of filters.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
+ * @subpackage Filters
  */
 class FilterSingletonFactory
 {

@@ -5,6 +5,8 @@
  * Defines the Dispatcher class.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Class that will be called each time there is a petition to the web, and shows

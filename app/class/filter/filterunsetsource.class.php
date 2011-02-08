@@ -4,7 +4,8 @@
  * data where the source can be unset (it's better to unset it so it can't be
  * accessed directly).
  *
- * @package GlobalFilters
+ * @package MVCLite
+ * @subpackage Filters
  */
 abstract class FilterUnsetSource extends AbstractFilter implements Filter
 {

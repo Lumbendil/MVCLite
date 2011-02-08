@@ -5,6 +5,8 @@
  * Single entry point of the framework.
  *
  * @author Roger Llopart Pla <lumbendil@gmail.com>
+ *
+ * @package MVCLite
  */
 /**
  * Path to the root folder, wich contains the app and httpdocs folders.
