@@ -26,6 +26,7 @@ class Dispatcher
 		{
 			$uri = FilterSingletonFactory::getInstance('FilterServer')
 								->getText('REQUEST_URI');
+
 			$router->parseUri( $uri );
 
 			$controller_name	= $router->getController();
@@ -67,8 +68,6 @@ class Dispatcher
 			throw new Error404Exception('Page not found', 2);
 		}
 
-		$controller->run( $action, $params );
-
-		return $controller;
+		return $controller->run( $action, $params );
 	}
 }
